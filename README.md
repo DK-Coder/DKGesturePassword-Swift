@@ -2,6 +2,20 @@
 Swift版本的手势密码
 
 
-#待完善功能
-1、按钮图片不显示（设置背景颜色可以显示，不是frame的问题）
-2、完善回调
+#	待完善功能
+1、使用协议进行回调
+
+#	使用方法
+将“DKGesturePassword-Swift”文件夹中的DKGesturePassword.swift和Resources.bundle拷贝到项目中即可使用
+
+#	参数说明
+	// 按钮宽度，默认64
+	var buttonWidth: CGFloat = DEFAULT_BUTTON_WIDTH
+	
+	// 线条宽度，默认10
+	var lineWidth: CGFloat = DEFAULT_LINE_WIDTH
+	
+	// 线条颜色，默认颜色cyanColor
+	var lineColor: UIColor = UIColor.cyanColor()
+	
+	

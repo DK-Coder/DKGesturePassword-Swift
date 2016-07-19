@@ -8,20 +8,21 @@
 
 import UIKit
 
+typealias gestureCompleteBlock = (String) -> Void
 /**
 *  列数，每行有几个按钮
 */
-let COLS_NUMBER_PER_ROW: Int = 3;
+let COLS_NUMBER_PER_ROW: Int = 3
 
 /**
 *  默认的按钮宽度
 */
-let DEFAULT_BUTTON_WIDTH: CGFloat = 64.0;
+let DEFAULT_BUTTON_WIDTH: CGFloat = 64.0
 
 /**
 *  默认的线条宽度
 */
-let DEFAULT_LINE_WIDTH: CGFloat = 10.0;
+let DEFAULT_LINE_WIDTH: CGFloat = 10.0
 
 class DKGesturePassword: UIView {
     
@@ -29,14 +30,16 @@ class DKGesturePassword: UIView {
     var lineWidth: CGFloat = DEFAULT_LINE_WIDTH
     var lineColor: UIColor = UIColor.cyanColor()
 
-    private var _buttonNumber: Int = 0;/**< 按钮数量*/
+    private var _buttonNumber: Int = 0/** 按钮数量*/
     
-    private var marginForX: CGFloat = 0.0;/**< 每个按钮在X轴上的间距（包括按钮和边界的间距和按钮之间的间距）*/
-    private var marginForY: CGFloat = 0.0;/**< 每个按钮在Y轴上的间距（只是按钮和边界的间距，Y轴上按钮和按钮之间的间距使用marginForX的值*/
+    private var marginForX: CGFloat = 0.0/** 每个按钮在X轴上的间距（包括按钮和边界的间距和按钮之间的间距）*/
+    private var marginForY: CGFloat = 0.0/** 每个按钮在Y轴上的间距（只是按钮和边界的间距，Y轴上按钮和按钮之间的间距使用marginForX的值*/
     
-    private var _arrayButtons = Array<UIButton>();/**< 存放按钮的数组*/
-    private var _arraySelectedButtons = Array<UIButton>();/**< 存放手指划过的按钮*/
-    private var _currentLocation: CGPoint = CGPointZero;/**< 手指现在所在的位置*/
+    private var _arrayButtons = Array<UIButton>()/** 存放按钮的数组*/
+    private var _arraySelectedButtons = Array<UIButton>()/** 存放手指划过的按钮*/
+    private var _currentLocation: CGPoint = CGPointZero/** 手指现在所在的位置*/
+    
+    private var completeBlock: gestureCompleteBlock?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,15 +61,15 @@ class DKGesturePassword: UIView {
         assert(_buttonNumber % 3 == 0, "按钮数量必须为3的整数倍")
         _buttonNumber = _buttonNumber != 0 ? _buttonNumber : 9
         
-        let panGesture = UIPanGestureRecognizer.init(target: self, action: "gestureDetected:")
+        let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(gestureDetected))
         addGestureRecognizer(panGesture)
         
         for i in 0 ..< _buttonNumber {
             let button = UIButton.init()
             button.tag = i
             button.userInteractionEnabled = false
-            button.setBackgroundImage(UIImage(named: "Node-Normal"), forState: .Normal)
-            button.setBackgroundImage(UIImage(named: "Node-Highlighted"), forState: .Highlighted)
+            button.setBackgroundImage(UIImage(named: "Resources.bundle/Node-Normal"), forState: .Normal)
+            button.setBackgroundImage(UIImage(named: "Resources.bundle/Node-Highlighted"), forState: .Highlighted)
 
             addSubview(button)
             _arrayButtons.append(button)
@@ -87,6 +90,10 @@ class DKGesturePassword: UIView {
             btn.layer.cornerRadius = buttonWidth / 2.0
             btn.center = CGPointMake(buttonX(btn), buttonY(btn))
         }
+    }
+    
+    func gestureDrawComplete(block: gestureCompleteBlock) {
+        completeBlock = block
     }
     
     private func buttonX(btn: UIButton) -> CGFloat {
@@ -111,7 +118,7 @@ class DKGesturePassword: UIView {
         return y
     }
     
-    @objc func gestureDetected(gestureRegcognizer: UIPanGestureRecognizer) {
+    @objc private func gestureDetected(gestureRegcognizer: UIPanGestureRecognizer) {
         
         let location = gestureRegcognizer.locationInView(self)
         _currentLocation = location
@@ -131,8 +138,8 @@ class DKGesturePassword: UIView {
                 btn.highlighted = false
                 userInputPassword += String(btn.tag)
             }
-            print(userInputPassword)
             _arraySelectedButtons.removeAll()
+            completeBlock!(userInputPassword)
         }
         
         setNeedsDisplay()

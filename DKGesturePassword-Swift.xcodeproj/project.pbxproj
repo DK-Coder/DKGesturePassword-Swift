@@ -12,9 +12,8 @@
 		046E580C1D3CECDD002EBD24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046E580A1D3CECDD002EBD24 /* Main.storyboard */; };
 		046E580E1D3CECDD002EBD24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046E580D1D3CECDD002EBD24 /* Assets.xcassets */; };
 		046E58111D3CECDD002EBD24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046E580F1D3CECDD002EBD24 /* LaunchScreen.storyboard */; };
-		046E581C1D3CF4A7002EBD24 /* Node-Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 046E581A1D3CF4A7002EBD24 /* Node-Highlighted.png */; };
-		046E581D1D3CF4A7002EBD24 /* Node-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 046E581B1D3CF4A7002EBD24 /* Node-Normal.png */; };
 		046E581F1D3CF67B002EBD24 /* DKGesturePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E581E1D3CF67B002EBD24 /* DKGesturePassword.swift */; };
+		BD3186F71D3DBFCC001E2811 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD3186F61D3DBFCC001E2811 /* Resources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +24,8 @@
 		046E580D1D3CECDD002EBD24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		046E58101D3CECDD002EBD24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		046E58121D3CECDD002EBD24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		046E581A1D3CF4A7002EBD24 /* Node-Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Node-Highlighted.png"; sourceTree = "<group>"; };
-		046E581B1D3CF4A7002EBD24 /* Node-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Node-Normal.png"; sourceTree = "<group>"; };
 		046E581E1D3CF67B002EBD24 /* DKGesturePassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKGesturePassword.swift; sourceTree = "<group>"; };
+		BD3186F61D3DBFCC001E2811 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,19 +72,10 @@
 		046E58181D3CF48E002EBD24 /* DKGesturePassword-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				046E58191D3CF48E002EBD24 /* Images */,
+				BD3186F61D3DBFCC001E2811 /* Resources.bundle */,
 				046E581E1D3CF67B002EBD24 /* DKGesturePassword.swift */,
 			);
 			path = "DKGesturePassword-Swift";
-			sourceTree = "<group>";
-		};
-		046E58191D3CF48E002EBD24 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				046E581A1D3CF4A7002EBD24 /* Node-Highlighted.png */,
-				046E581B1D3CF4A7002EBD24 /* Node-Normal.png */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,10 +137,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				046E58111D3CECDD002EBD24 /* LaunchScreen.storyboard in Resources */,
+				BD3186F71D3DBFCC001E2811 /* Resources.bundle in Resources */,
 				046E580E1D3CECDD002EBD24 /* Assets.xcassets in Resources */,
 				046E580C1D3CECDD002EBD24 /* Main.storyboard in Resources */,
-				046E581C1D3CF4A7002EBD24 /* Node-Highlighted.png in Resources */,
-				046E581D1D3CF4A7002EBD24 /* Node-Normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +304,7 @@
 				046E58171D3CECDD002EBD24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

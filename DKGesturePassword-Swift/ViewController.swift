@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.darkGrayColor()
         
         initAllControls()
     }
@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         let frame: CGRect = CGRectMake(0.0, 0.0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))
         let gesturePassword = DKGesturePassword.init(frame: frame, buttonNumber: 9)
         view.addSubview(gesturePassword)
+        gesturePassword.gestureDrawComplete { (password) in
+            print(password)
+        }
     }
 }
 
