@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DKGesturePassword-Swift"
-  s.version      = "1.0"
+  s.version      = "1.0.1"
   s.summary      = "Swift版的手势密码。支持swift 3.0"
 
   s.homepage     = "https://github.com/DK-Coder/DKGesturePassword-Swift"
@@ -16,8 +16,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "DKGesturePassword-Swift/DKGesturePassword-Swift/*"
 
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+  s.resources = "DKGesturePassword-Swift/DKGesturePassword-Swift/Resources/*.png"
 
   # s.requires_arc = true
 

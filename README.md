@@ -1,12 +1,14 @@
 # DKGesturePassword-Swift
 Swift版本的手势密码
 
-
-#	待完善功能
-1、使用协议进行回调
+# pod支持
+pod 'DKGesturePassword-Swift', '~> 1.0.1'
 
 #	使用方法
 将“DKGesturePassword-Swift”文件夹中的DKGesturePassword.swift和Resources.bundle拷贝到项目中即可使用
+
+#	待完善功能
+1、使用协议进行回调
 
 #	参数说明
 	// 按钮宽度，默认64
