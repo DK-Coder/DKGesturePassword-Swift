@@ -28,7 +28,7 @@ class DKGesturePassword: UIView {
     
     var buttonWidth: CGFloat = DEFAULT_BUTTON_WIDTH
     var lineWidth: CGFloat = DEFAULT_LINE_WIDTH
-    var lineColor: UIColor = UIColor.cyanColor()
+    var lineColor: UIColor = UIColor.cyan
 
     private var _buttonNumber: Int = 0/** 按钮数量*/
     
@@ -37,7 +37,7 @@ class DKGesturePassword: UIView {
     
     private var _arrayButtons = Array<UIButton>()/** 存放按钮的数组*/
     private var _arraySelectedButtons = Array<UIButton>()/** 存放手指划过的按钮*/
-    private var _currentLocation: CGPoint = CGPointZero/** 手指现在所在的位置*/
+    private var _currentLocation: CGPoint = CGPoint(x: 0.0, y: 0.0)/** 手指现在所在的位置*/
     
     private var completeBlock: gestureCompleteBlock?
     
@@ -67,15 +67,15 @@ class DKGesturePassword: UIView {
         for i in 0 ..< _buttonNumber {
             let button = UIButton.init()
             button.tag = i
-            button.userInteractionEnabled = false
-            button.setBackgroundImage(UIImage(named: "Resources.bundle/Node-Normal"), forState: .Normal)
-            button.setBackgroundImage(UIImage(named: "Resources.bundle/Node-Highlighted"), forState: .Highlighted)
+            button.isUserInteractionEnabled = false
+            button.setBackgroundImage(UIImage(named: "Resources.bundle/Node-Normal"), for: .normal)
+            button.setBackgroundImage(UIImage(named: "Resources.bundle/Node-Highlighted"), for: .highlighted)
 
             addSubview(button)
             _arrayButtons.append(button)
         }
         
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
     }
     
     override func layoutSubviews() {
@@ -83,16 +83,16 @@ class DKGesturePassword: UIView {
         super.layoutSubviews()
         
         let rowNumber: Int = _buttonNumber / COLS_NUMBER_PER_ROW
-        marginForX = (CGRectGetWidth(frame) - CGFloat(COLS_NUMBER_PER_ROW) * buttonWidth) / (CGFloat(COLS_NUMBER_PER_ROW) + 1)
-        marginForY = (CGRectGetHeight(frame) - CGFloat(rowNumber) * buttonWidth - (CGFloat(rowNumber) - 1.0) * marginForX) / 2.0
+        marginForX = (frame.width - CGFloat(COLS_NUMBER_PER_ROW) * buttonWidth) / (CGFloat(COLS_NUMBER_PER_ROW) + 1)
+        marginForY = (frame.height - CGFloat(rowNumber) * buttonWidth - (CGFloat(rowNumber) - 1.0) * marginForX) / 2.0
         for btn in _arrayButtons {
-            btn.frame = CGRectMake(0.0, 0.0, buttonWidth, buttonWidth)
+            btn.frame = CGRect(x: 0.0, y: 0.0, width: buttonWidth, height: buttonWidth)
             btn.layer.cornerRadius = buttonWidth / 2.0
-            btn.center = CGPointMake(buttonX(btn), buttonY(btn))
+            btn.center = CGPoint(x: buttonX(btn: btn), y: buttonY(btn: btn))
         }
     }
     
-    func gestureDrawComplete(block: gestureCompleteBlock) {
+    func gestureDrawComplete(block: @escaping gestureCompleteBlock) {
         completeBlock = block
     }
     
@@ -120,22 +120,22 @@ class DKGesturePassword: UIView {
     
     @objc private func gestureDetected(gestureRegcognizer: UIPanGestureRecognizer) {
         
-        let location = gestureRegcognizer.locationInView(self)
+        let location = gestureRegcognizer.location(in: self)
         _currentLocation = location
         
         for btn in _arrayButtons {
-            if CGRectContainsPoint(btn.frame, location) && !btn.highlighted {
-                btn.highlighted = true
+            if btn.frame.contains(location) && !btn.isHighlighted {
+                btn.isHighlighted = true
                 _arraySelectedButtons.append(btn)
             }
         }
         
-        if gestureRegcognizer.state == .Changed {
+        if gestureRegcognizer.state == .changed {
             
-        } else if gestureRegcognizer.state == .Ended {
+        } else if gestureRegcognizer.state == .ended {
             var userInputPassword: String = String()
             for btn in _arraySelectedButtons {
-                btn.highlighted = false
+                btn.isHighlighted = false
                 userInputPassword += String(btn.tag)
             }
             _arraySelectedButtons.removeAll()
@@ -145,22 +145,22 @@ class DKGesturePassword: UIView {
         setNeedsDisplay()
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         if _arraySelectedButtons.count > 0 {
             let path: UIBezierPath = UIBezierPath.init()
             for i in 0 ..< _arraySelectedButtons.count {
                 let btn: UIButton = _arraySelectedButtons[i]
                 if i == 0 {
-                    path.moveToPoint(btn.center)
+                    path.move(to: btn.center)
                 } else {
-                    path.addLineToPoint(btn.center)
+                    path.addLine(to: btn.center)
                 }
             }
             
-            path.addLineToPoint(_currentLocation)
+            path.addLine(to: _currentLocation)
             path.lineWidth = lineWidth
-            path.lineJoinStyle = .Round
+            path.lineJoinStyle = .round
             lineColor.set()
             path.stroke()
         }
