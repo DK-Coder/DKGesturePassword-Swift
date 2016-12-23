@@ -13,7 +13,12 @@
 		046E580E1D3CECDD002EBD24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046E580D1D3CECDD002EBD24 /* Assets.xcassets */; };
 		046E58111D3CECDD002EBD24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046E580F1D3CECDD002EBD24 /* LaunchScreen.storyboard */; };
 		046E581F1D3CF67B002EBD24 /* DKGesturePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E581E1D3CF67B002EBD24 /* DKGesturePassword.swift */; };
-		BD3186F71D3DBFCC001E2811 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD3186F61D3DBFCC001E2811 /* Resources.bundle */; };
+		BD1F80881E0D0440009EE523 /* Node-Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = BD1F80821E0D0440009EE523 /* Node-Highlighted.png */; };
+		BD1F80891E0D0440009EE523 /* Node-Highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD1F80831E0D0440009EE523 /* Node-Highlighted@2x.png */; };
+		BD1F808A1E0D0440009EE523 /* Node-Highlighted@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD1F80841E0D0440009EE523 /* Node-Highlighted@3x.png */; };
+		BD1F808B1E0D0440009EE523 /* Node-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = BD1F80851E0D0440009EE523 /* Node-Normal.png */; };
+		BD1F808C1E0D0440009EE523 /* Node-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD1F80861E0D0440009EE523 /* Node-Normal@2x.png */; };
+		BD1F808D1E0D0440009EE523 /* Node-Normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD1F80871E0D0440009EE523 /* Node-Normal@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +30,12 @@
 		046E58101D3CECDD002EBD24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		046E58121D3CECDD002EBD24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		046E581E1D3CF67B002EBD24 /* DKGesturePassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKGesturePassword.swift; sourceTree = "<group>"; };
-		BD3186F61D3DBFCC001E2811 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
+		BD1F80821E0D0440009EE523 /* Node-Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Node-Highlighted.png"; sourceTree = "<group>"; };
+		BD1F80831E0D0440009EE523 /* Node-Highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Node-Highlighted@2x.png"; sourceTree = "<group>"; };
+		BD1F80841E0D0440009EE523 /* Node-Highlighted@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Node-Highlighted@3x.png"; sourceTree = "<group>"; };
+		BD1F80851E0D0440009EE523 /* Node-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Node-Normal.png"; sourceTree = "<group>"; };
+		BD1F80861E0D0440009EE523 /* Node-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Node-Normal@2x.png"; sourceTree = "<group>"; };
+		BD1F80871E0D0440009EE523 /* Node-Normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Node-Normal@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +82,23 @@
 		046E58181D3CF48E002EBD24 /* DKGesturePassword-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				BD3186F61D3DBFCC001E2811 /* Resources.bundle */,
+				BD1F80811E0D0440009EE523 /* Resources */,
 				046E581E1D3CF67B002EBD24 /* DKGesturePassword.swift */,
 			);
 			path = "DKGesturePassword-Swift";
+			sourceTree = "<group>";
+		};
+		BD1F80811E0D0440009EE523 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD1F80821E0D0440009EE523 /* Node-Highlighted.png */,
+				BD1F80831E0D0440009EE523 /* Node-Highlighted@2x.png */,
+				BD1F80841E0D0440009EE523 /* Node-Highlighted@3x.png */,
+				BD1F80851E0D0440009EE523 /* Node-Normal.png */,
+				BD1F80861E0D0440009EE523 /* Node-Normal@2x.png */,
+				BD1F80871E0D0440009EE523 /* Node-Normal@3x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,10 +160,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1F808B1E0D0440009EE523 /* Node-Normal.png in Resources */,
 				046E58111D3CECDD002EBD24 /* LaunchScreen.storyboard in Resources */,
-				BD3186F71D3DBFCC001E2811 /* Resources.bundle in Resources */,
+				BD1F808D1E0D0440009EE523 /* Node-Normal@3x.png in Resources */,
 				046E580E1D3CECDD002EBD24 /* Assets.xcassets in Resources */,
+				BD1F808C1E0D0440009EE523 /* Node-Normal@2x.png in Resources */,
 				046E580C1D3CECDD002EBD24 /* Main.storyboard in Resources */,
+				BD1F80891E0D0440009EE523 /* Node-Highlighted@2x.png in Resources */,
+				BD1F80881E0D0440009EE523 /* Node-Highlighted.png in Resources */,
+				BD1F808A1E0D0440009EE523 /* Node-Highlighted@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

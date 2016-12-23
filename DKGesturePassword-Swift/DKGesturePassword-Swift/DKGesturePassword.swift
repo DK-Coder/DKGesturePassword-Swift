@@ -68,8 +68,8 @@ class DKGesturePassword: UIView {
             let button = UIButton.init()
             button.tag = i
             button.isUserInteractionEnabled = false
-            button.setBackgroundImage(UIImage(named: "Resources.bundle/Node-Normal"), for: .normal)
-            button.setBackgroundImage(UIImage(named: "Resources.bundle/Node-Highlighted"), for: .highlighted)
+            button.setBackgroundImage(UIImage(named: "Node-Normal"), for: .normal)
+            button.setBackgroundImage(UIImage(named: "Node-Highlighted"), for: .highlighted)
 
             addSubview(button)
             _arrayButtons.append(button)
@@ -146,6 +146,8 @@ class DKGesturePassword: UIView {
     }
     
     override func draw(_ rect: CGRect) {
+        
+        super.draw(rect)
         
         if _arraySelectedButtons.count > 0 {
             let path: UIBezierPath = UIBezierPath.init()
